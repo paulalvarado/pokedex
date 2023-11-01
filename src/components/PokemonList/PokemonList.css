@@ -1,0 +1,35 @@
+/* PokemonList.css */
+
+.PokemonList {
+    text-align: center;
+}
+
+.PokemonList h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.PokemonList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.PokemonList li {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.PokemonList button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+.PokemonList button:hover {
+    background-color: #0056b3;
+}
