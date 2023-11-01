@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
-import { PokemonContext } from "./PokemonContext";
+import { usePokemonStore } from "./usePokemonStore";
 
 export const PokemonProvider = ({ children }) => {
-
+ 
+  
   return (
-    <PokemonContext.Provider>
       {children}
-    </PokemonContext.Provider>
   );
 };
