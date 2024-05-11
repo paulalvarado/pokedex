@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Home, LoaderPage } from "../pages";
-import { Navigation } from "../components/templates/Navigation";
+import { Home } from "../pages";
+import Navigation from "../components/templates/Navigation";
 
 export const AppRouter = () => {
+    
     return (
         <Routes>
             <Route path="/" element={<Navigation />} >

@@ -1,14 +1,16 @@
-import React from "react"
+import React, { forwardRef } from 'react';
 import { Outlet } from "react-router-dom"
 import { Header } from "./Header"
 import { Footer } from "./Footer"
 
-export const Navigation = () => {
+const Navigation = forwardRef((props, ref) => {
     return (
-        <>
+        <div ref={ref}>
         <Header />
         <Outlet />
         <Footer />
-        </>
+        </div>
     )
-}
+});
+
+export default Navigation;

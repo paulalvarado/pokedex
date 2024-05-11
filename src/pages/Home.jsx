@@ -1,10 +1,7 @@
-import React from "react";
-import { Loader } from "../components/loader/Loader";
+import React, { useState } from "react";
 
 export const Home = () => {
     return (
-        <>
-            <Loader />
-        </>
+        <><h1>Home</h1></>
     );
 };
