@@ -5,12 +5,12 @@ import Navigation from "../components/templates/Navigation";
 
 export const AppRouter = () => {
     
-    
     return (
         <Routes>
-            <Route path="/" element={<Navigation />} >
+            {/* <Route path="/" element={<Navigation />} > */}
                 <Route index element={<Home />} />
-            </Route>
+                <Route path="login" element={<Login />} />
+            {/* </Route> */}
         </Routes>
     );
 };

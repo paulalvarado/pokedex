@@ -3,21 +3,30 @@ import { Transition } from "@headlessui/react";
 import { Onboarding1 } from "./Onboarding1";
 import { Onboarding2 } from "./Onboarding2";
 
-export const Onboarding = () => {
+export const Onboarding = React.forwardRef((props, ref) => {
     const [state, setState] = useState(0);
 
-    const next = () => setState((prev) => (prev === 0 ? 1 : 0));
+    const { offOnboarding } = props;
+
+    const next = () => {
+        if (state === 0) {
+            setState(1);
+        } else {
+            // Navigate to another page
+            offOnboarding();
+        }
+    };
 
     return (
-        <div className="flex flex-col w-[80%] mx-auto items-center h-dvh justify-end py-8 gap-8">
+        <div ref={ref} className="flex flex-col w-[80%] mx-auto items-center h-dvh justify-end py-8 gap-8">
             <div className="relative w-full h-full">
                 {/* Onboarding1 */}
                 <Transition
                     show={state === 0}
-                    enter="transition-opacity duration-300"
+                    enter="transition-opacity duration-700"
                     enterFrom="opacity-0"
                     enterTo="opacity-100"
-                    leave="transition-opacity duration-300"
+                    leave="transition-opacity duration-700"
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                     className="absolute w-full h-full"
@@ -28,10 +37,10 @@ export const Onboarding = () => {
                 {/* Onboarding2 */}
                 <Transition
                     show={state === 1}
-                    enter="transition-opacity duration-300"
+                    enter="transition-opacity duration-700"
                     enterFrom="opacity-0"
                     enterTo="opacity-100"
-                    leave="transition-opacity duration-300"
+                    leave="transition-opacity duration-700"
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                     className="absolute w-full h-full"
@@ -49,8 +58,8 @@ export const Onboarding = () => {
                 className="rounded-full bg-blue-800 text-white font-medium text-xl text-center px-6 py-2 w-full"
                 onClick={next}
             >
-                Continuar
+                {state === 0 ? "Continuar" : "¡Empecemos!"}
             </button>
         </div>
     );
-};
+});
