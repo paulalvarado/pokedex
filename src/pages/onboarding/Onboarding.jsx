@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import { Onboarding1 } from "./Onboarding1";
 import { Onboarding2 } from "./Onboarding2";
@@ -6,15 +7,14 @@ import { Onboarding2 } from "./Onboarding2";
 export const Onboarding = React.forwardRef((props, ref) => {
     const [state, setState] = useState(0);
 
-    const { offOnboarding } = props;
+    const navigate = useNavigate();
 
     const next = () => {
-        if (state === 0) {
-            setState(1);
-        } else {
-            // Navigate to another page
-            offOnboarding();
-        }
+        setState(prevState => {
+            if (prevState === 0) return 1;
+            navigate('/login');
+            return prevState;
+        });
     };
 
     return (
